@@ -1,0 +1,10 @@
+.DS_Store
+.gradle/
+.idea/
+*.iml
+local.properties
+**/build/
+
+# Local device and agent-run artifacts can contain private on-screen data.
+device-verification/
+review-logs/
