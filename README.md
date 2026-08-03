@@ -116,19 +116,6 @@ Ferro also has an Autonomous profile for development and testing. It removes Fer
 approval restrictions for the advertised tools, but it cannot bypass Android accessibility,
 protected authentication screens, overlay permission, or other operating-system security.
 
-## Providers
-
-The same core harness currently supports:
-
-- NVIDIA and other OpenAI-compatible Chat Completions endpoints;
-- OpenAI-compatible Responses endpoints, including LiteLLM proxies.
-
-Provider modules translate streaming text, reasoning, images, tool calls, results, usage, cancellation,
-and failures into the same core contract. Provider-specific JSON does not enter the Android handlers
-or agent state machine.
-
-Credentials are entered at runtime and kept in memory. They are not written to the event journal or
-process-recovery metadata.
 
 ## Testing
 
@@ -170,6 +157,7 @@ Ferro is a working MVP, but I do not consider the harness finished. The main eng
 in progress is:
 
 - token-aware context budgeting and real context compaction;
+- plan and task feature
 - stronger detection of meaningful visual changes inside the same Android window;
 - complete runtime validation of every advertised JSON tool schema;
 - action accounting based on confirmed dispatch rather than proposed calls;
@@ -181,11 +169,3 @@ in progress is:
 Secure or protected Android surfaces may return a black screenshot. Ferro treats that as incomplete
 evidence and can ask the user to take control, but it does not attempt to bypass the protected surface.
 
-## Project status
-
-The current version can complete real multi-step Android tasks, expose its decisions and failures,
-survive Activity recreation, continue in a foreground service, and recover safely after process death.
-
-My current focus is tightening the correctness boundaries now that the full vertical loop works. The
-goal is not to hide failure behind a polished demo, but to make each model decision, runtime decision,
-Android action, and recovery step explicit enough to understand and test.
