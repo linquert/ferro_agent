@@ -1,5 +1,7 @@
 # Ferro
 
+Uses nim api key for llm service( available for free), needs to be adopted for provider agnostic.
+
 Ferro is an Android agent app and agent harness written in Kotlin.
 
 I built it to understand what makes an agent reliable beyond the basic loop of sending a prompt to
